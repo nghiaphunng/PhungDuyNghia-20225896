@@ -1,0 +1,4 @@
+Bài 5.1: 
+-Do chỉ kiểm tra (option == JOptionPane.YES_OPTION) nên nếu không chọn Yes thì chỉ hiển thị ra "No"
+Vậy nên khi chọn "Cancel" thì sẽ hiển trị "No"
+-Em có thực hiện việc tùy chỉnh chọn lựa của người dùng demo ở \src\main\java\exercises\ChoosingOptionCustom.java
