@@ -13,6 +13,7 @@ public class BankAccount {
 
     private static final int MAX_WITHDRAWALS = 3;
     private int updateMonthlyInterest;
+    private int INTEREST_UPDATE_DATE = 25;
 
     public BankAccount(){
         this.transactionList = new ArrayList<>();
@@ -26,7 +27,7 @@ public class BankAccount {
         int currentMonth = calendar.get(Calendar.MONTH);
 
         //check đã tới ngày tính lãi : 25
-        if(currentMonth != updateMonthlyInterest && calendar.get(Calendar.DAY_OF_MONTH) > 25){
+        if(currentMonth != updateMonthlyInterest && calendar.get(Calendar.DAY_OF_MONTH) > INTEREST_UPDATE_DATE){
             double interest = currentBalance * (monthlyInterestRate / 100);
             currentBalance += interest;
 
@@ -47,6 +48,7 @@ public class BankAccount {
         System.out.println("Số dư hiện tại: " + this.currentBalance);
     }
 
+    //gửi tiền
     public void deposit(double amount) {
         calculateMonthlyInterest();
 
@@ -54,6 +56,7 @@ public class BankAccount {
         transactionList.add("Deposit - " + amount + " VNĐ - " + getDateTrans());
     }
 
+    //rút tiền
     public void withDrawal(double amount){
         calculateMonthlyInterest();
         if(withdrawalCount >= MAX_WITHDRAWALS){
@@ -69,6 +72,7 @@ public class BankAccount {
         }
     }
 
+    //lịch sử giao dịch
     public void printTransHis(){
         for (String s : transactionList) {
             System.out.println(s);
